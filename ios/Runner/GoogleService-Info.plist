@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>914010149502-krbmdfftl5sjg7f9ba21dnt0jo674mte.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.914010149502-krbmdfftl5sjg7f9ba21dnt0jo674mte</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>914010149502-854792i9cn8c3pgk3imelopeao144far.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDTzjPBFxND61mnQHuaIsrl9hrrtK4uTi4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>914010149502</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>master.th.in.androidthai.mariealert</string>
+	<key>PROJECT_ID</key>
+	<string>marie-f5375</string>
+	<key>STORAGE_BUCKET</key>
+	<string>marie-f5375.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:914010149502:ios:80444c61969733fb</string>
+	<key>DATABASE_URL</key>
+	<string>https://marie-f5375.firebaseio.com</string>
+</dict>
+</plist>

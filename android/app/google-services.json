@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "914010149502",
+    "firebase_url": "https://marie-f5375.firebaseio.com",
+    "project_id": "marie-f5375",
+    "storage_bucket": "marie-f5375.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914010149502:android:06da909aa9069b56",
+        "android_client_info": {
+          "package_name": "masterung.th.in.androidthai.mariealert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914010149502-02a7di3u612d1errskh7nrrcktgnac86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "masterung.th.in.androidthai.mariealert",
+            "certificate_hash": "99f1de59cbbb9f0ab27aeb63c596235bc843b92a"
+          }
+        },
+        {
+          "client_id": "914010149502-el4s9mnoldn63ep0i8sqa9a5m2usf5lg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLddmxa6csfVLg2eOEaj6adAL_5LoQvo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914010149502-el4s9mnoldn63ep0i8sqa9a5m2usf5lg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "914010149502-krbmdfftl5sjg7f9ba21dnt0jo674mte.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "master.th.in.androidthai.mariealert"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
