@@ -101,10 +101,10 @@ class _AddChildrenState extends State<AddChildren> {
   Widget saveChildrenButton(BuildContext context) {
     return RaisedButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-      color: Colors.blue[300],
+      color: MyStyle().alertColor,
       child: Text(
         'บันทึก',
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: MyStyle().textColors),
       ),
       onPressed: () {
         print('statusSave = $statusSave');
@@ -143,13 +143,14 @@ class _AddChildrenState extends State<AddChildren> {
   Future<void> uploadToServer(BuildContext context) async {
     String urlParents =
         '${MyConstant().urlDomain}App/editParentWhereIdCode.php?isAdd=true&idCode=$barcode&parents=$tokenString';
-    // print('urlParents ==> $urlParents');
+    // print('urlParents ==>>>>>>>>> $urlParents');
     var parentsResponse = await get(urlParents);
     var resultParents = json.decode(parentsResponse.body);
-    print('resultParents ==> $resultParents');
+    // print('resultParents ==> $resultParents');
 
     String urlString =
         '${MyConstant().urlDomain}App/editUserMariaWhereId.php?isAdd=true&id=$idLogin&idCode=${listChildrens.toString()}';
+        print('urlString ========>>>>>>>>> $urlString');
     var response = await get(urlString);
     var result = json.decode(response.body);
     if ((result.toString() != 'null')) {

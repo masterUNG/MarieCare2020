@@ -109,11 +109,14 @@ class ChildrenListView extends StatelessWidget {
           '${MyConstant().urlDomain}App/editUserMariaWhereId.php?isAdd=true&id=$idLogin&idCode=${idCodeList.toString()}';
       print('url = $urlString');
 
-      // var response = await get(urlString);
+      var response = await http.get(urlString);
+      print('responst =====>>>>>>> ${response.toString()}');
 
-      await http.get(urlString).then((value) {
-        routeToListNew(context);
-      });
+      routeToListNew(context);
+
+      // await http.get(urlString).then((value) {
+      //   routeToListNew(context);
+      // });
     } catch (e) {
       print('Error ==>>>> ${e.toString()}');
       routeToListNew(context);
