@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mariealert/screens/show_news_list.dart';
@@ -8,14 +10,27 @@ import '../models/children_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ChildrenListView extends StatelessWidget {
+class ChildrenListView extends StatefulWidget {
+  final List<ChildrenModel> childrenModels;
+  final String idLogin;
+  ChildrenListView({Key key, this.childrenModels, this.idLogin}) : super(key: key);
+  @override
+  _ChildrenListViewState createState() => _ChildrenListViewState();
+}
+
+class _ChildrenListViewState extends State<ChildrenListView> {
   // Explicit
   List<ChildrenModel> childrenModels;
   List<String> idCodeList = [];
-  ChildrenListView(this.childrenModels);
-  Widget widget;
+  String idLogin;
 
   // Method
+  @override
+  void initState() {
+    super.initState();
+    childrenModels = widget.childrenModels;
+    idLogin = widget.idLogin;
+  }
 
   Widget showButtonScore(BuildContext context, int index) {
     return Container(
@@ -89,7 +104,6 @@ class ChildrenListView extends StatelessWidget {
         style: TextStyle(color: Colors.red[700]),
       ),
       onPressed: () {
-        Navigator.of(context).pop();
         deleteChildrent(index, context);
       },
     );
@@ -109,17 +123,33 @@ class ChildrenListView extends StatelessWidget {
           '${MyConstant().urlDomain}App/editUserMariaWhereId.php?isAdd=true&id=$idLogin&idCode=${idCodeList.toString()}';
       print('url = $urlString');
 
-      var response = await http.get(urlString);
-      print('responst =====>>>>>>> ${response.toString()}');
+      await http.get(urlString).then((value) {
+        if (childrenModels.length != 0) {
+          childrenModels.removeWhere((value) => true);
+          refreshListView();
+        }
+      });
 
-      routeToListNew(context);
+      Navigator.of(context).pop();
 
-      // await http.get(urlString).then((value) {
-      //   routeToListNew(context);
-      // });
     } catch (e) {
       print('Error ==>>>> ${e.toString()}');
-      routeToListNew(context);
+      // routeToListNew(context);
+    }
+  }
+
+  Future<void> refreshListView()async{
+    String url =
+        '${MyConstant().urlDomain}App/getUserWhereId.php?isAdd=true&id=$idLogin';
+    
+    try {
+
+      await http.get(url).then((value){
+        var result = json.decode(value.body);
+        print('result +++++++>>>>>>>> $result');
+      });
+      
+    } catch (e) {
     }
   }
 

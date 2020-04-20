@@ -49,10 +49,22 @@ class _ShowChildrenListState extends State<ShowChildrenList>
       if (idCodeLists[0] == '') {
         idCodeLists.removeAt(0);
         print('idCodeList after ==> $idCodeLists');
+        print('idUser = $idLogin');
+        repairUserMarie(idCodeLists.toString());
       }
 
       getChildrenFromIdCode();
     }
+  }
+
+  Future<void> repairUserMarie(String string) async {
+    String url =
+        'http://tscore.net/App/editUserMariaWhereId.php?isAdd=true&id=$idLogin&idCode=$string';
+    try {
+      await get(url).then(
+        (value) => print('value ===>> ${value.body.toString()}'),
+      );
+    } catch (e) {}
   }
 
   Future<void> getChildrenFromIdCode() async {
@@ -101,7 +113,9 @@ class _ShowChildrenListState extends State<ShowChildrenList>
         backgroundColor: MyStyle().mainColors,
         title: Text(titleAppBar),
       ),
-      body: ChildrenListView(childrenModels),
+      body: ChildrenListView(
+        childrenModels: childrenModels,idLogin: idLogin.toString(),
+      ),
     );
   }
 }

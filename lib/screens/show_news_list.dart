@@ -21,6 +21,7 @@ class ShowNewsList extends StatefulWidget {
 }
 
 class _ShowNewsListState extends State<ShowNewsList> {
+  // Field
   String titleAppbar = 'ข่าวสาร น่ารู้';
   String titleTooltip = 'ออกจากผู้ใช้';
   String titleNotification = 'ข้อความจาก มาลี';
@@ -39,14 +40,22 @@ class _ShowNewsListState extends State<ShowNewsList> {
 
   SharedPreferences sharePreferances;
 
-  @override
-  void initState() {
-    // Get Data From Json for Create ListView
+ @override
+ void initState() { 
+   super.initState();
+   // Get Data From Json for Create ListView
     getAllDataFromJson();
 
     // Load Config Setting from SharePreferance
     getCredectial();
 
+    responseFromCloudMessage();
+
+    // Find Token
+    findToken();
+ }
+
+  void responseFromCloudMessage() {
     firebaseMessageing.configure(onLaunch: (Map<String, dynamic> msg) {
       print('onLaunch Call: ==> $msg');
       setState(() {
@@ -68,16 +77,18 @@ class _ShowNewsListState extends State<ShowNewsList> {
         _showDialog(notiModel.title.toString(), notiModel.body.toString());
       });
     });
-
+    
     firebaseMessageing.requestNotificationPermissions(
-        const IosNotificationSettings(sound: true, alert: true, badge: true));
-
+      const IosNotificationSettings(sound: true, alert: true, badge: true),
+    );
+    
     firebaseMessageing.onIosSettingsRegistered
         .listen((IosNotificationSettings setting) {
       print('Ios Setting Registed');
     });
+  }
 
-    // Find Token
+  void findToken() {
     firebaseMessageing.getToken().then((token) {
       myToken = token;
       print('myToken ==##############>>> $myToken');
