@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/news_model.dart';
 
 class ShowDetailNews extends StatelessWidget {
+  
 
   List<NewsModel> newsModels = [];
   ShowDetailNews(this.newsModels);
