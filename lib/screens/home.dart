@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gradients/flutter_gradients.dart';
 import 'package:mariealert/screens/authen.dart';
 import 'package:mariealert/screens/register.dart';
 import 'package:mariealert/screens/show_news_list.dart';
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
         MaterialPageRoute route = MaterialPageRoute(
           builder: (value) => ShowNewsList(),
         );
-        Navigator.of(context).pushAndRemoveUntil(route, (value)=>false);
+        Navigator.of(context).pushAndRemoveUntil(route, (value) => false);
       }
     } catch (e) {
       print('e ====> ${e.toString()}');
@@ -43,8 +44,6 @@ class _HomeState extends State<Home> {
       });
     }
   }
-
-  
 
   Widget showAppName() {
     return Text(
@@ -99,14 +98,13 @@ class _HomeState extends State<Home> {
   Container showContent() {
     return Container(
       decoration: BoxDecoration(
-          gradient: RadialGradient(
-        colors: [
-          Colors.white,
-          MyStyle().mainColors,
-        ],
-        radius: 1.0,
-        center: Alignment(0.0, -0.3),
-      )),
+        gradient: FlutterGradients.sharpBlues(
+          type: GradientType.radial,
+          radius: 0.8,
+          tileMode: TileMode.clamp,
+          center: Alignment.center
+        ),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
