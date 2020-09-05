@@ -275,11 +275,7 @@ class _AuthenState extends State<Authen> {
       child: Container(
         padding: EdgeInsets.only(top: 50.0, left: 50.0, right: 50.0),
         decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [Colors.white, MyStyle().mainColors],
-            center: Alignment(0, -0.5),
-            radius: 0.8,
-          ),
+          gradient: MyStyle().bgGradien(),
         ),
         child: Container(
           child: Column(
@@ -312,7 +308,7 @@ class _AuthenState extends State<Authen> {
         child: GestureDetector(
           child: Icon(
             Icons.arrow_back,
-            color: Colors.blue[800],
+            color: Colors.white,
           ),
           onTap: () {
             Navigator.of(context).pop();

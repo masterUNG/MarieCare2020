@@ -233,14 +233,7 @@ class _RegisterState extends State<Register> {
       key: formKey,
       child: Container(
         decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: <Color>[
-              Colors.white,
-              MyStyle().mainColors,
-            ],
-            radius: 1.2,
-            center: Alignment(0, -1.0),
-          ),
+          gradient: MyStyle().bgGradien(),
         ),
         child: Center(
           child: SingleChildScrollView(

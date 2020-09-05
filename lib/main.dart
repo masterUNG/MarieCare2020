@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mariealert/screens/edit_my_sql.dart';
 import 'package:mariealert/screens/home.dart';
 import 'package:flutter/services.dart';
 

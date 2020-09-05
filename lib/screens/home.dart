@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gradients/flutter_gradients.dart';
+
 import 'package:mariealert/screens/authen.dart';
 import 'package:mariealert/screens/register.dart';
 import 'package:mariealert/screens/show_news_list.dart';
@@ -22,7 +24,25 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    aboutNoti();
     checkStatus();
+  }
+
+  Future<Null> aboutNoti() async {
+    Firebase.initializeApp().then((value) {
+      FirebaseMessaging messaging = FirebaseMessaging();
+    messaging.configure(
+      onLaunch: (message) {
+        print('onLaunch Process');
+      },
+      onMessage: (message) {
+        print('onMessage Process');
+      },
+      onResume: (message) {
+        print('onResume Process');
+      },
+    );
+    });
   }
 
   Future<void> checkStatus() async {
@@ -48,7 +68,7 @@ class _HomeState extends State<Home> {
   Widget showAppName() {
     return Text(
       appName,
-      style: MyStyle().h1Style,
+      style: MyStyle().h1WhiteStyle,
     );
   }
 
@@ -97,14 +117,7 @@ class _HomeState extends State<Home> {
 
   Container showContent() {
     return Container(
-      decoration: BoxDecoration(
-        gradient: FlutterGradients.sharpBlues(
-          type: GradientType.radial,
-          radius: 0.8,
-          tileMode: TileMode.clamp,
-          center: Alignment.center
-        ),
-      ),
+      decoration: BoxDecoration(gradient: MyStyle().bgGradien()),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
